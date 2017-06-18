@@ -1,10 +1,10 @@
-SolarLoon_Software  
+SkyLoon
 Edited by Lionel Isoz  
 For the MorgesHAB project  
 https://morgeshab.wordpress.com/  
 
 Hi eveyryone,  
-These repository is used for the MorgesHAB project, a high altitude balloon project.  
+These repository is used for the MorgesHAB project, a high altitude balloon project. SkyLoon is the name of the Mission 2 (2nd launch)
 These programmes would be used to measure the temperature, the humidity and the pressure in the stratosphere. We will also have use a GPS LoRa Hat how would record the GPS coordinates and send it by radio.  
 A raspicam module V2 is also aboard.  
 Check our website for more informations --> https://morgeshab.wordpress.com/  
@@ -60,9 +60,31 @@ For the BMP180 :
 	
 	sudo apt-get install python_smbus_i2c_tools -y
 
+Make sure you have install wiringpi and git with :
+	
+	sudo apt-get install wiringpi
+	sudo apt-get install git
+
+
+Now you have done all the configurations, install all the software :
+
+	sudo git clone https://github.com/MorgesHAB/SkyLoon/
+
+Now you have to compile some programmes so go in this directory 
+
+	cd /home/pi/SkyLoon/LORA_Sender
+	make
+
+If there isn't something to make, 
+
+	sudo nano /src/main.cpp 
+	Enter , Ctrl X , Y, Enter 
+	cd .. 
+	make
+
 For the DHT22 :
 	
-	cd /homepi/SolarLoon_Software/Captor/Adafruit_Python_DHT/
+	cd /home/pi/SkyLoon/Captor/Adafruit_Python_DHT/
 	sudo apt-get update
 	sudo apt-get install build-essential python-dev python-openssl
 	sudo python setup.py install
@@ -117,7 +139,7 @@ Run gpsd :
 
 Or :
 
-	sudo bash /home/pi/SolarLoon_Software/GPS/ACTIVATE_GPS.sh
+	sudo bash /home/pi/SkyLoon/GPS/ACTIVATE_GPS.sh
 
 You can test if you receive GPS with (Go outside ! ;-):
 	
@@ -125,26 +147,6 @@ You can test if you receive GPS with (Go outside ! ;-):
 
 ---------------------------------------------------------------------
 
-Make sure you have install wiringpi and git with :
-	
-	sudo apt-get install wiringpi
-	sudo apt-get install git
-
-
-Now you have done all the configurations, install all the software :
-
-	sudo git clone https://github.com/MorgesHAB/SolarLoon_Software/
-
-Now you have to compile some programmes so go in this directory 
-
-	cd /home/pi/SolarLoon_Software/LORA_Sender
-	make
-If there isn't something to make, 
-
-	sudo nano /src/main.cpp 
-	Enter , Ctrl X , Y, Enter 
-	cd .. 
-	make
 
 Then activate all the programmes :
 
@@ -158,15 +160,15 @@ Edited the crontab (If it's the first time, choose the open's mode, take the mod
 
 Add these lignes to the cron at the end of the file :
 
-	*/1  *  *  *  *  python /home/pi/SolarLoon_Software/Captor/BMP180.py
-	*/1  *  *  *  *  python /home/pi/SolarLoon_Software/Captor/DHT22.py
-	*/1  *  *  *  *  python /home/pi/SolarLoon_Software/Captor/DS18B20_GPS.py
+	*/1  *  *  *  *  python /home/pi/SkyLoon/BMP180.py
+	*/1  *  *  *  *  python /home/pi/SkyLoon/Captor/DHT22.py
+	*/1  *  *  *  *  python /home/pi/SkyLoon/Captor/DS18B20_GPS.py
 
-	*/1  *  *  *  *  python /home/pi/SolarLoon_Software/GPS/GPS_RECORDER.py
+	*/1  *  *  *  *  python /home/pi/SkyLoon/GPS/GPS_RECORDER.py
 
-	*/1  *  *  *  *  python /home/pi/SolarLoon_Software/Raspicam/raspicam.py
+	*/1  *  *  *  *  python /home/pi/SkyLoon/Raspicam/raspicam.py
 
-	*/1  *  *  *  *  python /home/pi/SolarLoon_Software/LORA_Sender/MAIN_SENDER.py
+	*/1  *  *  *  *  python /home/pi/SkyLoon/LORA_Sender/MAIN_SENDER.py
 
 
 Then modify this file to activate script on the boot :
@@ -175,8 +177,8 @@ Then modify this file to activate script on the boot :
 
 Add these lignes juste befor the "exit 0":
 
-	sudo bash   /home/pi/SolarLoon_Software/GPS/ACTIVATE_GPS.sh
-	(sudo python /home/pi/SolarLoon_Software/RTC_Pi0_GPS/RTC_Pi0_GPS.py)
+	sudo bash   /home/pi/SkyLoonGPS/ACTIVATE_GPS.sh
+	(sudo python /home/pi/SkyLoon/RTC_Pi0_GPS/RTC_Pi0_GPS.py)
 
 And Now it's finish !
 

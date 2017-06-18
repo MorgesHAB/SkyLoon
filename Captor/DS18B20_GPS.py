@@ -52,7 +52,7 @@ Nbr_GPS_Time_Data = 1
 # We have to shedule the captor in order to record "x" data in 1 minute and not more !
 try :
   # Go to the recorded data folder 
-  os.chdir("/home/pi/SolarLoon_Software/Captor/Data_Captor")
+  os.chdir("/home/pi/SkyLoon/Captor/Data_Captor")
   while Nbr_Data_Temperature < Nbr_Data_per_Minute :
     #print(read_temp())
 	# Now we have the Data, we record the temperature and the humidity on file.txt

@@ -27,7 +27,7 @@ try :
      report = session.next()   # Wait the next TPV report
      # Uncomment the next line to see all the data on the TPV report
      #print report
-     os.chdir("/home/pi/SolarLoon_Software/GPS/GPS_DATA") # Go to the recorded data folder 
+     os.chdir("/home/pi/SkyLoon/GPS/GPS_DATA") # Go to the recorded data folder 
      # The GPS takes GPS data every secondes, so we take only the GPS data
      # every "x" secondes
      if report['class'] == 'TPV':
@@ -39,6 +39,7 @@ try :
            if Check_if_all_msg == False :
               if hasattr(report, 'time') :
                 GPSTIME = str(report.time)
+                TIME_PI0 = time.strftime("%H-%M-%S")    # take the Pi0 time 
                 Nbr_received_DATA +=1
               if hasattr(report, 'speed') :
                 SPEED = str(report.speed * gps.MPS_TO_KPH)
@@ -60,6 +61,8 @@ try :
               if Check_if_all_msg == True :
                  with open("Time.txt","a") as fichier :
                     print >> fichier, GPSTIME     # record time on file.txt
+                 with open("TIME_PI0.txt","a") as fichier1 :
+                    print >> fichier1, TIME_PI0     
                  with open("Speed.txt","a") as fichier2 :
                     print >> fichier2, SPEED
                  with open("Altitude.txt","a") as fichier3 :
