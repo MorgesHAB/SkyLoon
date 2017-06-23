@@ -5,3 +5,4 @@ truncate -s 0 Speed.txt
 truncate -s 0 Longitude.txt
 truncate -s 0 Latitude.txt
 truncate -s 0 Altitude.txt
+truncate -s 0 TIME_PI0.txt

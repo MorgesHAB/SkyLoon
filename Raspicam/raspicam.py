@@ -2,7 +2,7 @@
 #coding=utf-8
 # This script will be actived each minute
 
-# First write "sudo apt-get install picamera-??????" on the raspbery pi terminal
+# First write "sudo apt-get install python3-picamera" on the raspbery pi terminal
 
 # import all the module we will need
 import time 
