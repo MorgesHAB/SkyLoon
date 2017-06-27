@@ -10,14 +10,6 @@ import RPi.GPIO as GPIO
 import picamera
 from random import randrange
 
-# As we don't see if the camera is capturing a photo, we will 
-# shedule a LED that will light on when a video is taking
-
-# So we setup the GPIO of the LED
-GPIO_PIN = 19
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(GPIO_PIN, GPIO.OUT)  # define this pin as an output
-
 # setup the camera with the module picamera
 camera=picamera.PiCamera()
 
@@ -37,7 +29,6 @@ try :
 
 except KeyboardInterrupt :
   print("Exit")
-  GPIO.cleanup()
 
 # ***
 # We will name the video with the time of the Pi 0, but if the raspberry Pi reboot,

@@ -135,7 +135,7 @@ try :
       print >> fichier3, TIME       # record time on file.txt
     # Wait between each recorded data (in secondes)
     time.sleep(Time_between_each_recorded_data)
-    Nbr_Data +=1    
+    Nbr_Data +=1 
 
 except KeyboardInterrupt :
   print("Exit")
