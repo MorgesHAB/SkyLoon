@@ -222,6 +222,9 @@ while Nbr_GPS_Data < 60 :
                       # We send the GPS Data to the programme C++ how send the message by radio
                       # Warning, the order GPSTIME, SPEED, ... plays a role 
                       subprocess.call(["./chisterapi", GPSTIME, SPEED, LONGITUDE, LATITUDE, ALTITUDE, msg_Temperature, msg_Pressure, msg_Humidity])
+                      with open("LOG_TRANSMISSION.txt","a") as fichier3 :
+                         TIME = time.strftime("%H-%M-%S")    # take the Pi0 time 
+                         print >> fichier3, "msg send at "+TIME+" --> "+ GPSTIME    # record time on file.txt 
                       Check_if_all_msg = False
                Nbr_GPS_Data +=1
         
