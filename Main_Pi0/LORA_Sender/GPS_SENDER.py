@@ -75,11 +75,14 @@ while Nbr_GPS_Data < 60 :
                       Nbr_received_DATA = 0
                     if Nbr_received_DATA != 5 :
                       Nbr_received_DATA = 0
+                      with open("LOG_ERROR_GPS_SENDER.txt","a") as fichier6 :
+                         TIME_ERROR = time.strftime("%H-%M-%S")  
+                         print >> fichier5, "ERROR GPS, DIDN'T RECEIVE THE 5 DATA at "+ TIME_ERROR
                     if Check_if_all_msg == True :
                       subprocess.call(["./chisterapi", GPSTIME, SPEED, LONGITUDE, LATITUDE, ALTITUDE])
 		                  with open("LOG_TRANSMISSION.txt","a") as fichier3 :
 			                   TIME = time.strftime("%H-%M-%S")    # take the Pi0 time 
-                         print >> fichier3, "msg send at "+TIME+" --> "+ GPSTIME    # record time on file.txt 
+                         print >> fichier3, "The 5 msg have been send at "+TIME+" --> "+ GPSTIME    # record time on file.txt 
                       Check_if_all_msg = False
                Nbr_GPS_Data +=1
         
