@@ -13,8 +13,22 @@ import gps
 # We have to write that on the terminal raspberry Pi
 os.system('modprobe w1-gpio')    
 os.system('modprobe w1-therm')  
-# Read on the 1-wire port
 
+# Define a vrariable how would count the number of captor Data
+Nbr_Data_Temperature = 0
+# Define the number of Data you want to record in 1 min
+Nbr_Data_per_Minute = 3
+Time_between_each_recorded_data = int(60 / Nbr_Data_per_Minute)  # 60 because 1 min
+
+# Setup the LoRa GPS Hat
+# Read on the localhost 2947 port (gpsd)
+session = gps.gps("localhost", "2947")
+session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
+# Define a vrariables how would count the number of GPS Data
+Nbr_GPS_Altitude_Data = 1
+Nbr_GPS_Time_Data = 1
+
+# We have to shedule the captor in order to record "x" data in 1 minute and not more !
 try :
   base_dir = '/sys/bus/w1/devices/'
   device_folder = glob.glob(base_dir + '28*')[0]
@@ -36,28 +50,6 @@ try :
           temp_string = lines[1][equals_pos+2:]
           temp_c = float(temp_string) / 1000.0
           return temp_c
-except :
-  with open("LOG_ERROR.txt","a") as fichier7 :
-      TIME_2 = time.strftime("%H-%M-%S")
-      print >> fichier7, "ERROR CAPTOR DS18B20 at "+TIME_2   # record time on file.txt
-  
-
-# Define a vrariable how would count the number of captor Data
-Nbr_Data_Temperature = 0
-# Define the number of Data you want to record in 1 min
-Nbr_Data_per_Minute = 3
-Time_between_each_recorded_data = int(60 / Nbr_Data_per_Minute)  # 60 because 1 min
-
-# Setup the LoRa GPS Hat
-# Read on the localhost 2947 port (gpsd)
-session = gps.gps("localhost", "2947")
-session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
-# Define a vrariables how would count the number of GPS Data
-Nbr_GPS_Altitude_Data = 1
-Nbr_GPS_Time_Data = 1
-
-# We have to shedule the captor in order to record "x" data in 1 minute and not more !
-try :
   # Go to the recorded data folder 
   os.chdir("/home/pi/SkyLoon/Main_Pi0/Captor/Data_Captor")
   while Nbr_Data_Temperature < Nbr_Data_per_Minute :
@@ -95,4 +87,8 @@ try :
 
 except KeyboardInterrupt:
     print("Exit")
+except :
+  with open("LOG_ERROR.txt","a") as fichier7 :
+      TIME_2 = time.strftime("%H-%M-%S")
+      print >> fichier7, "ERROR CAPTOR DS18B20 at "+TIME_2   # record time on file.txt
     
