@@ -9,22 +9,22 @@ import os
 import RPi.GPIO as GPIO
 import picamera
 from random import randrange
+import time
 
 # setup the camera with the module picamera
 camera=picamera.PiCamera()
 
 try :
-	while True :
-		 # Now we have the Data, we record the temperature and the humidity on file.txt
-		 os.chdir("/home/pi/SkyLoon/2nd_Pi0/Raspicam/Data_Films")  # Go to the recorded photos folder 
-		 random_number = str(randrange(999)) # ***
-		 # We will name the video with the time when the videos is taking
-		 Time_video = str(time.strftime('%H%M%S'))
-		 Name_of_video = Time_video+"_"+random_number
-		 camera.resolution = (640, 480)
-		 camera.start_recording(Name_of_video, format='mov')  # take a video
-		 camera.wait_recording(58)
-		 camera.stop_recording()   #stop video
+	# Now we have the Data, we record the temperature and the humidity on file.txt
+	os.chdir("/home/pi/SkyLoon/2nd_Pi0/Raspicam/Data_Films")  # Go to the recorded photos folder 
+	random_number = str(randrange(999)) # ***
+	# We will name the video with the time when the videos is taking
+	Time_video = str(time.strftime('%H%M%S'))
+	Name_of_video = Time_video+"_"+random_number+".h264"
+	camera.resolution = (640, 480)
+	camera.start_recording(Name_of_video)  # take a video
+	camera.wait_recording(58)
+	camera.stop_recording()   #stop video
 				
 
 except KeyboardInterrupt :
