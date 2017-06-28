@@ -54,7 +54,8 @@ try :
   os.chdir("/home/pi/SkyLoon/Main_Pi0/Captor/Data_Captor")
   while Nbr_Data_Temperature < Nbr_Data_per_Minute :
     #print(read_temp())
-	  # Now we have the Data, we record the temperature and the humidity on file.txt
+	  # Now we have the Data, we record the temperature 
+    # and the humidity on file.txt
 	  with open("DS18B20_Temperature.txt","a") as fichier :
         print >> fichier, read_temp()         # record temperature on file.txt
     # We want to record the Pi0 time when a DS18B20 data is recorded
