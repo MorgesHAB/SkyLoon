@@ -124,7 +124,7 @@ try :
     #print("------------------------------------------")
     
     # Now we have the Data, we record the temperature and the humidity on file.txt
-    os.chdir("/home/pi/SkyLoon/Captor/Data_Captor")    # Go to the recorded data folder 
+    os.chdir("/home/pi/SkyLoon/Main_Pi0/Captor/Data_Captor")    # Go to the recorded data folder 
     with open("BMP180_Pressure.txt","a") as fichier :
      print >> fichier, pressure       # record pressure on file.txt
     with open("BMP180_Temperature.txt","a") as fichier2 :

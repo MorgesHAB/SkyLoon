@@ -35,7 +35,7 @@ Nbr_received_DATA = 0
 while Nbr_GPS_Data < 60 :
     try:
          # Go to the sender data folder 
-         os.chdir("/home/pi/SolarLoon_Software/LORA_Sender")
+         os.chdir("/home/pi/SkyLoon/Main_Pi0/LORA_Sender")
          if FIRST_TIME :
           subprocess.call(["./chisterapi", " Data are comming !"])
           FIRST_TIME = False

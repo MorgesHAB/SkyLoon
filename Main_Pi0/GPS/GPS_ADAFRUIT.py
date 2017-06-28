@@ -27,7 +27,7 @@ try :
      report = session.next()   # Wait the next TPV report
      # Uncomment the next line to see all the data on the TPV report
      #print report
-     os.chdir("/home/pi/SkyLoon/GPS/GPS_DATA") # Go to the recorded data folder 
+     os.chdir("/home/pi/SkyLoon/Main_Pi0/GPS/GPS_DATA") # Go to the recorded data folder 
      # The GPS takes GPS data every secondes, so we take only the GPS data
      # every "x" secondes
      if report['class'] == 'TPV':
@@ -64,7 +64,7 @@ try :
                 try :
                   with open("RTC.txt","a") as fichier7 :
                     TIME_2 = time.strftime("%H-%M-%S")  
-                    print >> fichier7, "ERROR GPS, only RTC Time -"+GPSTIME " = "+TIME_2
+                    print >> fichier7, "ERROR GPS, only RTC Time -"+GPSTIME+" = "+TIME_2
                 except :
                   pass
               if Check_if_all_msg == True :

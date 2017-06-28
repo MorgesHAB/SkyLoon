@@ -16,7 +16,7 @@ camera=picamera.PiCamera()
 try :
 	while True :
 		 # Now we have the Data, we record the temperature and the humidity on file.txt
-		 os.chdir("/home/pi/SkyLoon/Raspicam/Data_Films")  # Go to the recorded photos folder 
+		 os.chdir("/home/pi/SkyLoon/Main_Pi0/Raspicam/Data_Films")  # Go to the recorded photos folder 
 		 random_number = str(randrange(999)) # ***
 		 # We will name the video with the time when the videos is taking
 		 Time_video = str(time.strftime('%H%M%S'))
