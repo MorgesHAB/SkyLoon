@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document id="aprs">
+<Style id="t1658546">
+  <LabelStyle><color>ffa8ff00</color><scale>0.75</scale></LabelStyle>
+  <IconStyle>
+    <Icon>
+      <href>files/sym/f24/p4fp4f.png</href>
+    </Icon>
+  <scale>0.75</scale>
+  </IconStyle>
+  <LineStyle>
+    <color>ff00ff00</color>
+    <colorMode>normal</colorMode>
+    <width>2</width>
+  </LineStyle>
+  <PolyStyle><color>7f00ff00</color></PolyStyle>
+</Style>
+<Placemark>
+  <name>HB9IAC-11</name>
+  <description><![CDATA[
+<a href='http://aprs.fi/?call=HB9IAC-11'>[click here to track on aprs.fi]</a><br />
+2016-06-22 09:36:05z<br />
+6 km/h
+ 201°
+ 626 m
+<br />
+<span style='color:#0a7100; font-style:italic;'>www.swiss-strato.com</span><br />
+<span style='color:#b400ff; font-style:italic;'>MicroTrak FA v1.42</span><br />
+[from ]<br />
+
+]]></description>
+  <Snippet maxLines='2'>www.swiss-strato.com MicroTrak FA v1.42(6 km/h)</Snippet>
+  <styleUrl>#t1658546</styleUrl>
+  <MultiGeometry>
+  <Point>
+  <altitudeMode>absolute</altitudeMode>
+    <coordinates>7.43500,47.17667,625.75</coordinates>
+  </Point>
+  <LineString>
+    <tessellate>1</tessellate>
+    <extrude>1</extrude>
+    <altitudeMode>absolute</altitudeMode>
+    <coordinates>
+ 
+
+   </coordinates>
+  </LineString>
+  </MultiGeometry>
+</Placemark>
+</Document>
+</kml>
+
+6.639981667,46.443166667,1062.9
+6.631438333,46.449866667,1059.1
+6.62262,46.4528,1041.6
+6.60469,46.455823333,1020.8
+6.59643,46.461506667,1026.5
+6.587895,46.464401667,1030.8
+6.579278333,46.46713,1025.0
+6.570355,46.470033333,999.8
+6.561771667,46.473208333,997.1
+6.552858333,46.476715,1009.9
+6.545046667,46.47972,1068.6
+6.538381667,46.482186667,1099.5
+6.530348333,46.485056667,1109.2
+6.51552,46.491221667,1098.4
+6.508038333,46.494891667,1105.0
+6.502246667,46.498943333,1127.0
+6.512928333,46.509165,1169.7
+6.510375,46.514315,1126.5
+6.517325,46.481475,1122.3
+6.528096667,46.477711667,1102.8
+6.868096667,46.411398333,
+6.86583,46.423463333,1296.7
+6.865271667,46.435226667,1343.3
+6.864348333,46.441536667,1405.3
+6.855941667,46.462833333,1427.7
+6.855941667,46.477176667,1435.6
+6.835845,46.50432,1440.0
+6.623298333,46.625043333,
+6.62383,46.627328333,1152.3
+6.622871667,46.606965,1159.6
+6.62236,46.601341667,999.7
+6.620735,46.594935,951.4
+6.620735,46.555166667,829.1

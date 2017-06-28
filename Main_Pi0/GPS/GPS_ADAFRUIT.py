@@ -60,7 +60,13 @@ try :
                 Nbr_received_DATA = 0
                 with open("LOG_ERROR_GPS.txt","a") as fichier6 :
                   TIME_ERROR = time.strftime("%H-%M-%S")  
-                  print >> fichier5, "ERROR GPS, DIDN'T RECEIVE THE 5 DATA at "+ TIME_ERROR
+                  print >> fichier6, "ERROR GPS, DIDN'T RECEIVE THE 5 DATA at "+ TIME_ERROR
+                try :
+                  with open("RTC.txt","a") as fichier7 :
+                    TIME_2 = time.strftime("%H-%M-%S")  
+                    print >> fichier7, "ERROR GPS, only RTC Time -"+GPSTIME " = "+TIME_2
+                except :
+                  pass
               if Check_if_all_msg == True :
                  with open("Time.txt","a") as fichier :
                     print >> fichier, GPSTIME     # record time on file.txt
