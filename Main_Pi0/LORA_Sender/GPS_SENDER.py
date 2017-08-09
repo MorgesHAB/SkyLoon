@@ -70,14 +70,9 @@ while Nbr_GPS_Data < 60 :
                       Nbr_received_DATA = 0
                     if Nbr_received_DATA != 5 :
                       Nbr_received_DATA = 0
-                    if Nbr_received_DATA == 5 :
-                      Check_if_all_msg = True
-                      Nbr_received_DATA = 0
-                    if Nbr_received_DATA != 5 :
-                      Nbr_received_DATA = 0
                       with open("LOG_ERROR_GPS_SENDER.txt","a") as fichier6 :
                          TIME_ERROR = time.strftime("%H-%M-%S")  
-                         print >> fichier5, "ERROR GPS, DIDN'T RECEIVE THE 5 DATA at "+ TIME_ERROR
+                         print >> fichier6, "ERROR GPS, DIDN'T RECEIVE THE 5 DATA at "+ TIME_ERROR
                     if Check_if_all_msg == True :
                       subprocess.call(["./chisterapi", GPSTIME, SPEED, LONGITUDE, LATITUDE, ALTITUDE])
 		                  with open("LOG_TRANSMISSION.txt","a") as fichier3 :
